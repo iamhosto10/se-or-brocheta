@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@layer base {
+  :root {
+    --background: #f9f9f9;
+    --foreground: #1a1c1c;
+    --card: #ffffff;
+    --card-foreground: #1a1c1c;
+    --popover: #ffffff;
+    --popover-foreground: #1a1c1c;
+    --primary: #000000;
+    --primary-foreground: #ffffff;
+    --secondary: #006d30;
+    --secondary-foreground: #ffffff;
+    --muted: #f3f3f4;
+    --muted-foreground: #7e7576;
+    --accent: #f3f3f4;
+    --accent-foreground: #1a1c1c;
+    --destructive: #ba1a1a;
+    --destructive-foreground: #ffffff;
+    --border: #e2e2e2;
+    --input: #e2e2e2;
+    --ring: #000000;
+    --radius: 0.25rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: #1a1c1c;
+    --foreground: #f9f9f9;
+    --card: #1a1c1c;
+    --card-foreground: #f9f9f9;
+    --popover: #1a1c1c;
+    --popover-foreground: #f9f9f9;
+    --primary: #f9f9f9;
+    --primary-foreground: #1a1c1c;
+    --secondary: #6afb90;
+    --secondary-foreground: #00210a;
+    --muted: #2f3131;
+    --muted-foreground: #cfc4c5;
+    --accent: #2f3131;
+    --accent-foreground: #f9f9f9;
+    --destructive: #ffdad6;
+    --destructive-foreground: #93000a;
+    --border: #2f3131;
+    --input: #2f3131;
+    --ring: #f9f9f9;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
